@@ -2,11 +2,15 @@ import Alert from '~/components/styled/alert';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/primitives/tabs";
 import CodePreview from "~/lib/code-preview";
 import { CameraIcon } from "lucide-solid";
-import { Info } from 'lucide-solid';
+import { Info,FileWarning } from 'lucide-solid';
 
 # Alert
 
 <p class="lead">Display a callout for user attention.</p>
+
+<Alert icon={<> <FileWarning/> </>} title="Note to readers" status="warning" size="md">
+    <span>This is early development. use it at your own risk</span>
+</Alert>
 
 ## Usage
 
