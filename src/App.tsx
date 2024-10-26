@@ -26,7 +26,7 @@ const App: Component<{}> = (props) => {
         </>
       )}
     >
-      <Route path={"/docs"} component={DocsLayout}>
+      <Route path={"/ui/docs"} component={DocsLayout}>
         <Route path={"/components"}>
           <Route path={"/alert"} component={() => <AlertDoc />} />
         </Route>
@@ -34,15 +34,15 @@ const App: Component<{}> = (props) => {
         <Route path={"/theming"} component={() => <Theming />} />
         <Route path={"/styling"} component={() => <Styling />} />
       </Route>
-      <Route path={"/"} component={HomePage}></Route>
+      <Route path={"/ui/"} component={HomePage}></Route>
       <Route
-        path={"*"}
+        path={"/ui/*"}
         component={() => {
-          window.location.href = "/not-found";
+          window.location.href = "/ui/not-found";
           return <></>;
         }}
       ></Route>
-      <Route path={"/not-found"} component={NotFoundPage}></Route>
+      <Route path={"/ui/not-found"} component={NotFoundPage}></Route>
     </Router>
   );
 };
