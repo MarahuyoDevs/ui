@@ -3,9 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://MarahuyoDevs.github.io/ui/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "deploy":"gh-pages -d dist",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -33,6 +35,7 @@
     "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^22.8.1",
     "autoprefixer": "^10.4.20",
+    "gh-pages": "^6.2.0",
     "postcss": "^8.4.47",
     "remark-gfm": "^4.0.0",
     "solid-jsx": "^1.1.4",
