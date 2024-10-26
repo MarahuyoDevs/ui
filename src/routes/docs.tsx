@@ -36,20 +36,16 @@ const ComponentLayout: Component<RouteSectionProps<{}>> = (props) => {
         </header>
         <Tabs>
           <TabsList class="grid grid-cols-4 w-fit">
-            <TabsTrigger as="a" href="/docs/getting-started" value="getStarted">
+            <TabsTrigger as="a" href="/ui/getting-started" value="getStarted">
               Get Started
             </TabsTrigger>
-            <TabsTrigger
-              as="a"
-              href="/docs/components/alert"
-              value="components"
-            >
+            <TabsTrigger as="a" href="/ui/components/alert" value="components">
               Components
             </TabsTrigger>
-            <TabsTrigger as="a" href="/docs/styling" value="styling">
+            <TabsTrigger as="a" href="/ui/styling" value="styling">
               Styling
             </TabsTrigger>
-            <TabsTrigger as="a" href="/docs/theming" value="theming">
+            <TabsTrigger as="a" href="/ui/theming" value="theming">
               Theming
             </TabsTrigger>
           </TabsList>

@@ -27,6 +27,13 @@ const App: Component<{}> = (props) => {
       )}
     >
       <Route path={"/ui/"} component={DocsLayout}>
+        <Route
+          path="/"
+          component={() => {
+            window.location.href = "/ui/getting-started";
+            return <></>;
+          }}
+        />
         <Route path={"/components"}>
           <Route path={"/alert"} component={() => <AlertDoc />} />
         </Route>
