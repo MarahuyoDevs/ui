@@ -1,37 +1,24 @@
-import {
-  mergeProps,
-  Show,
-  splitProps,
-  type Component,
-  type ComponentProps,
-} from "solid-js";
+import { mergeProps, Show, splitProps, type Component, type ComponentProps } from "solid-js"
 
-import { cn } from "lib/utils";
+import { cn } from "~/lib/utils"
 
 type DeltaBarProps = ComponentProps<"div"> & {
-  value: number;
-  isIncreasePositive?: boolean;
-};
+  value: number
+  isIncreasePositive?: boolean
+}
 
 const DeltaBar: Component<DeltaBarProps> = (rawProps) => {
   const props = mergeProps(
     {
-      isIncreasePositive: true,
+      isIncreasePositive: true
     },
     rawProps
-  );
-  const [local, others] = splitProps(props, [
-    "value",
-    "isIncreasePositive",
-    "class",
-  ]);
+  )
+  const [local, others] = splitProps(props, ["value", "isIncreasePositive", "class"])
 
   return (
     <div
-      class={cn(
-        "relative flex h-2 w-full items-center rounded-full bg-secondary",
-        local.class
-      )}
+      class={cn("relative flex h-2 w-full items-center rounded-full bg-secondary", local.class)}
       {...others}
     >
       <div class="flex h-full w-1/2 justify-end">
@@ -48,11 +35,7 @@ const DeltaBar: Component<DeltaBarProps> = (rawProps) => {
           />
         </Show>
       </div>
-      <div
-        class={cn(
-          "z-10 h-4 w-1 rounded-full bg-primary ring-2 ring-background"
-        )}
-      />
+      <div class={cn("z-10 h-4 w-1 rounded-full bg-primary ring-2 ring-background")} />
       <div class="flex h-full w-1/2 justify-start">
         <Show when={local.value > 0}>
           <div
@@ -68,8 +51,8 @@ const DeltaBar: Component<DeltaBarProps> = (rawProps) => {
         </Show>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export type { DeltaBarProps };
-export { DeltaBar };
+export type { DeltaBarProps }
+export { DeltaBar }

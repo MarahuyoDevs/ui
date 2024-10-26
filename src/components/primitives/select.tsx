@@ -1,28 +1,25 @@
-import type { JSX, ValidComponent } from "solid-js";
-import { splitProps } from "solid-js";
+import type { JSX, ValidComponent } from "solid-js"
+import { splitProps } from "solid-js"
 
-import type { PolymorphicProps } from "@kobalte/core/polymorphic";
-import * as SelectPrimitive from "@kobalte/core/select";
+import type { PolymorphicProps } from "@kobalte/core/polymorphic"
+import * as SelectPrimitive from "@kobalte/core/select"
 
-import { cn } from "lib/utils";
+import { cn } from "~/lib/utils"
 
-const Select = SelectPrimitive.Root;
-const SelectValue = SelectPrimitive.Value;
-const SelectHiddenSelect = SelectPrimitive.HiddenSelect;
+const Select = SelectPrimitive.Root
+const SelectValue = SelectPrimitive.Value
+const SelectHiddenSelect = SelectPrimitive.HiddenSelect
 
 type SelectTriggerProps<T extends ValidComponent = "button"> =
   SelectPrimitive.SelectTriggerProps<T> & {
-    class?: string | undefined;
-    children?: JSX.Element;
-  };
+    class?: string | undefined
+    children?: JSX.Element
+  }
 
 const SelectTrigger = <T extends ValidComponent = "button">(
   props: PolymorphicProps<T, SelectTriggerProps<T>>
 ) => {
-  const [local, others] = splitProps(props as SelectTriggerProps, [
-    "class",
-    "children",
-  ]);
+  const [local, others] = splitProps(props as SelectTriggerProps, ["class", "children"])
   return (
     <SelectPrimitive.Trigger
       class={cn(
@@ -47,16 +44,16 @@ const SelectTrigger = <T extends ValidComponent = "button">(
         <path d="M16 15l-4 4l-4 -4" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
-  );
-};
+  )
+}
 
 type SelectContentProps<T extends ValidComponent = "div"> =
-  SelectPrimitive.SelectContentProps<T> & { class?: string | undefined };
+  SelectPrimitive.SelectContentProps<T> & { class?: string | undefined }
 
 const SelectContent = <T extends ValidComponent = "div">(
   props: PolymorphicProps<T, SelectContentProps<T>>
 ) => {
-  const [local, others] = splitProps(props as SelectContentProps, ["class"]);
+  const [local, others] = splitProps(props as SelectContentProps, ["class"])
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Content
@@ -69,22 +66,18 @@ const SelectContent = <T extends ValidComponent = "div">(
         <SelectPrimitive.Listbox class="m-0 p-1" />
       </SelectPrimitive.Content>
     </SelectPrimitive.Portal>
-  );
-};
+  )
+}
 
-type SelectItemProps<T extends ValidComponent = "li"> =
-  SelectPrimitive.SelectItemProps<T> & {
-    class?: string | undefined;
-    children?: JSX.Element;
-  };
+type SelectItemProps<T extends ValidComponent = "li"> = SelectPrimitive.SelectItemProps<T> & {
+  class?: string | undefined
+  children?: JSX.Element
+}
 
 const SelectItem = <T extends ValidComponent = "li">(
   props: PolymorphicProps<T, SelectItemProps<T>>
 ) => {
-  const [local, others] = splitProps(props as SelectItemProps, [
-    "class",
-    "children",
-  ]);
+  const [local, others] = splitProps(props as SelectItemProps, ["class", "children"])
   return (
     <SelectPrimitive.Item
       class={cn(
@@ -110,14 +103,7 @@ const SelectItem = <T extends ValidComponent = "li">(
       </SelectPrimitive.ItemIndicator>
       <SelectPrimitive.ItemLabel>{local.children}</SelectPrimitive.ItemLabel>
     </SelectPrimitive.Item>
-  );
-};
+  )
+}
 
-export {
-  Select,
-  SelectValue,
-  SelectHiddenSelect,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-};
+export { Select, SelectValue, SelectHiddenSelect, SelectTrigger, SelectContent, SelectItem }

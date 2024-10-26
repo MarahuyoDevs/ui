@@ -1,26 +1,23 @@
-import type { JSX, ValidComponent } from "solid-js";
-import { splitProps } from "solid-js";
+import type { JSX, ValidComponent } from "solid-js"
+import { splitProps } from "solid-js"
 
-import type { PolymorphicProps } from "@kobalte/core";
-import * as NavigationMenuPrimitive from "@kobalte/core/navigation-menu";
+import type { PolymorphicProps } from "@kobalte/core"
+import * as NavigationMenuPrimitive from "@kobalte/core/navigation-menu"
 
-import { cn } from "lib/utils";
+import { cn } from "~/lib/utils"
 
-const NavigationMenuItem = NavigationMenuPrimitive.Menu;
+const NavigationMenuItem = NavigationMenuPrimitive.Menu
 
 type NavigationMenuProps<T extends ValidComponent = "ul"> =
   NavigationMenuPrimitive.NavigationMenuRootProps<T> & {
-    class?: string | undefined;
-    children?: JSX.Element;
-  };
+    class?: string | undefined
+    children?: JSX.Element
+  }
 
 const NavigationMenu = <T extends ValidComponent = "ul">(
   props: PolymorphicProps<T, NavigationMenuProps<T>>
 ) => {
-  const [local, others] = splitProps(props as NavigationMenuProps, [
-    "class",
-    "children",
-  ]);
+  const [local, others] = splitProps(props as NavigationMenuProps, ["class", "children"])
   return (
     <NavigationMenuPrimitive.Root
       gutter={6}
@@ -33,20 +30,18 @@ const NavigationMenu = <T extends ValidComponent = "ul">(
       {local.children}
       <NavigationMenuViewport />
     </NavigationMenuPrimitive.Root>
-  );
-};
+  )
+}
 
 type NavigationMenuTriggerProps<T extends ValidComponent = "button"> =
   NavigationMenuPrimitive.NavigationMenuTriggerProps<T> & {
-    class?: string | undefined;
-  };
+    class?: string | undefined
+  }
 
 const NavigationMenuTrigger = <T extends ValidComponent = "button">(
   props: PolymorphicProps<T, NavigationMenuTriggerProps<T>>
 ) => {
-  const [local, others] = splitProps(props as NavigationMenuTriggerProps, [
-    "class",
-  ]);
+  const [local, others] = splitProps(props as NavigationMenuTriggerProps, ["class"])
   return (
     <NavigationMenuPrimitive.Trigger
       class={cn(
@@ -55,8 +50,8 @@ const NavigationMenuTrigger = <T extends ValidComponent = "button">(
       )}
       {...others}
     />
-  );
-};
+  )
+}
 const NavigationMenuIcon = () => {
   return (
     <NavigationMenuPrimitive.Icon aria-hidden="true">
@@ -73,20 +68,16 @@ const NavigationMenuIcon = () => {
         <path d="M6 9l6 6l6 -6" />
       </svg>
     </NavigationMenuPrimitive.Icon>
-  );
-};
+  )
+}
 
 type NavigationMenuViewportProps<T extends ValidComponent = "li"> =
-  NavigationMenuPrimitive.NavigationMenuViewportProps<T> & {
-    class?: string | undefined;
-  };
+  NavigationMenuPrimitive.NavigationMenuViewportProps<T> & { class?: string | undefined }
 
 const NavigationMenuViewport = <T extends ValidComponent = "li">(
   props: PolymorphicProps<T, NavigationMenuViewportProps<T>>
 ) => {
-  const [local, others] = splitProps(props as NavigationMenuViewportProps, [
-    "class",
-  ]);
+  const [local, others] = splitProps(props as NavigationMenuViewportProps, ["class"])
   return (
     <NavigationMenuPrimitive.Viewport
       class={cn(
@@ -98,20 +89,18 @@ const NavigationMenuViewport = <T extends ValidComponent = "li">(
       )}
       {...others}
     />
-  );
-};
+  )
+}
 
 type NavigationMenuContentProps<T extends ValidComponent = "ul"> =
   NavigationMenuPrimitive.NavigationMenuContentProps<T> & {
-    class?: string | undefined;
-  };
+    class?: string | undefined
+  }
 
 const NavigationMenuContent = <T extends ValidComponent = "ul">(
   props: PolymorphicProps<T, NavigationMenuContentProps<T>>
 ) => {
-  const [local, others] = splitProps(props as NavigationMenuContentProps, [
-    "class",
-  ]);
+  const [local, others] = splitProps(props as NavigationMenuContentProps, ["class"])
   return (
     <NavigationMenuPrimitive.Portal>
       <NavigationMenuPrimitive.Content
@@ -133,20 +122,16 @@ const NavigationMenuContent = <T extends ValidComponent = "ul">(
         {...others}
       />
     </NavigationMenuPrimitive.Portal>
-  );
-};
+  )
+}
 
 type NavigationMenuLinkProps<T extends ValidComponent = "a"> =
-  NavigationMenuPrimitive.NavigationMenuItemProps<T> & {
-    class?: string | undefined;
-  };
+  NavigationMenuPrimitive.NavigationMenuItemProps<T> & { class?: string | undefined }
 
 const NavigationMenuLink = <T extends ValidComponent = "a">(
   props: PolymorphicProps<T, NavigationMenuLinkProps<T>>
 ) => {
-  const [local, others] = splitProps(props as NavigationMenuLinkProps, [
-    "class",
-  ]);
+  const [local, others] = splitProps(props as NavigationMenuLinkProps, ["class"])
   return (
     <NavigationMenuPrimitive.Item
       class={cn(
@@ -155,46 +140,38 @@ const NavigationMenuLink = <T extends ValidComponent = "a">(
       )}
       {...others}
     />
-  );
-};
+  )
+}
 
 type NavigationMenuLabelProps<T extends ValidComponent = "div"> =
-  NavigationMenuPrimitive.NavigationMenuItemLabelProps<T> & {
-    class?: string | undefined;
-  };
+  NavigationMenuPrimitive.NavigationMenuItemLabelProps<T> & { class?: string | undefined }
 
 const NavigationMenuLabel = <T extends ValidComponent = "div">(
   props: PolymorphicProps<T, NavigationMenuLabelProps<T>>
 ) => {
-  const [local, others] = splitProps(props as NavigationMenuLabelProps, [
-    "class",
-  ]);
+  const [local, others] = splitProps(props as NavigationMenuLabelProps, ["class"])
   return (
     <NavigationMenuPrimitive.ItemLabel
       class={cn("text-sm font-medium leading-none", local.class)}
       {...others}
     />
-  );
-};
+  )
+}
 
 type NavigationMenuDescriptionProps<T extends ValidComponent = "div"> =
-  NavigationMenuPrimitive.NavigationMenuItemDescriptionProps<T> & {
-    class?: string | undefined;
-  };
+  NavigationMenuPrimitive.NavigationMenuItemDescriptionProps<T> & { class?: string | undefined }
 
 const NavigationMenuDescription = <T extends ValidComponent = "div">(
   props: PolymorphicProps<T, NavigationMenuDescriptionProps<T>>
 ) => {
-  const [local, others] = splitProps(props as NavigationMenuDescriptionProps, [
-    "class",
-  ]);
+  const [local, others] = splitProps(props as NavigationMenuDescriptionProps, ["class"])
   return (
     <NavigationMenuPrimitive.ItemDescription
       class={cn("text-sm leading-snug text-muted-foreground", local.class)}
       {...others}
     />
-  );
-};
+  )
+}
 
 export {
   NavigationMenu,
@@ -205,5 +182,5 @@ export {
   NavigationMenuContent,
   NavigationMenuLink,
   NavigationMenuLabel,
-  NavigationMenuDescription,
-};
+  NavigationMenuDescription
+}

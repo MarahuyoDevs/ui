@@ -1,45 +1,34 @@
-import type { ValidComponent } from "solid-js";
-import { Show, splitProps } from "solid-js";
+import type { ValidComponent } from "solid-js"
+import { Show, splitProps } from "solid-js"
 
-import type { DynamicProps, HandleProps, RootProps } from "@corvu/resizable";
-import ResizablePrimitive from "@corvu/resizable";
+import type { DynamicProps, HandleProps, RootProps } from "@corvu/resizable"
+import ResizablePrimitive from "@corvu/resizable"
 
-import { cn } from "lib/utils";
+import { cn } from "~/lib/utils"
 
-type ResizableProps<T extends ValidComponent = "div"> = RootProps<T> & {
-  class?: string;
-};
+type ResizableProps<T extends ValidComponent = "div"> = RootProps<T> & { class?: string }
 
-const Resizable = <T extends ValidComponent = "div">(
-  props: DynamicProps<T, ResizableProps<T>>
-) => {
-  const [, rest] = splitProps(props as ResizableProps, ["class"]);
+const Resizable = <T extends ValidComponent = "div">(props: DynamicProps<T, ResizableProps<T>>) => {
+  const [, rest] = splitProps(props as ResizableProps, ["class"])
   return (
     <ResizablePrimitive
-      class={cn(
-        "flex size-full data-[orientation=vertical]:flex-col",
-        props.class
-      )}
+      class={cn("flex size-full data-[orientation=vertical]:flex-col", props.class)}
       {...rest}
     />
-  );
-};
+  )
+}
 
-const ResizablePanel = ResizablePrimitive.Panel;
+const ResizablePanel = ResizablePrimitive.Panel
 
-type ResizableHandleProps<T extends ValidComponent = "button"> =
-  HandleProps<T> & {
-    class?: string;
-    withHandle?: boolean;
-  };
+type ResizableHandleProps<T extends ValidComponent = "button"> = HandleProps<T> & {
+  class?: string
+  withHandle?: boolean
+}
 
 const ResizableHandle = <T extends ValidComponent = "button">(
   props: DynamicProps<T, ResizableHandleProps<T>>
 ) => {
-  const [, rest] = splitProps(props as ResizableHandleProps, [
-    "class",
-    "withHandle",
-  ]);
+  const [, rest] = splitProps(props as ResizableHandleProps, ["class", "withHandle"])
   return (
     <ResizablePrimitive.Handle
       class={cn(
@@ -70,7 +59,7 @@ const ResizableHandle = <T extends ValidComponent = "button">(
         </div>
       </Show>
     </ResizablePrimitive.Handle>
-  );
-};
+  )
+}
 
-export { Resizable, ResizablePanel, ResizableHandle };
+export { Resizable, ResizablePanel, ResizableHandle }
