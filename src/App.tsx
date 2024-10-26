@@ -26,7 +26,7 @@ const App: Component<{}> = (props) => {
         </>
       )}
     >
-      <Route path={"/"} component={DocsLayout}>
+      <Route path={"/ui/"} component={DocsLayout}>
         <Route path={"/components"}>
           <Route path={"/alert"} component={() => <AlertDoc />} />
         </Route>
@@ -34,7 +34,7 @@ const App: Component<{}> = (props) => {
         <Route path={"/theming"} component={() => <Theming />} />
         <Route path={"/styling"} component={() => <Styling />} />
       </Route>
-      <Route path={"/not-found"} component={NotFoundPage}></Route>
+      <Route path={"/ui/not-found"} component={NotFoundPage}></Route>
     </Router>
   );
 };
