@@ -6,7 +6,7 @@
   "homepage": "https://MarahuyoDevs.github.io/ui/",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --base=./",
     "deploy":"gh-pages -d dist",
     "preview": "vite preview"
   },
