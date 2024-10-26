@@ -4,7 +4,7 @@ import {
   ColorModeScript,
   createLocalStorageManager,
 } from "@kobalte/core";
-import { Route, Router } from "@solidjs/router";
+import { Navigate, Route, Router } from "@solidjs/router";
 import DocsLayout from "./routes/docs";
 import HomePage from "./routes/home";
 import NotFoundPage from "./routes/notFound";
@@ -29,10 +29,7 @@ const App: Component<{}> = (props) => {
       <Route path={"/ui/"} component={DocsLayout}>
         <Route
           path="/"
-          component={() => {
-            window.location.href = "/ui/getting-started";
-            return <></>;
-          }}
+          component={() => <Navigate href={"/ui/getting-started"} />}
         />
         <Route path={"/components"}>
           <Route path={"/alert"} component={() => <AlertDoc />} />
