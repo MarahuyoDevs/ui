@@ -7,6 +7,7 @@ import {
 } from "~/components/primitives/tabs";
 import hljs from "highlight.js";
 import { Card, CardContent } from "~/components/primitives/card";
+import { Info } from "lucide-solid";
 const CodePreview: Component<{
   preview: JSX.Element;
   children: JSX.Element;

@@ -2,6 +2,7 @@ import Alert from '~/components/styled/alert';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/primitives/tabs";
 import CodePreview from "~/lib/code-preview";
 import { CameraIcon } from "lucide-solid";
+import { Info } from 'lucide-solid';
 
 # Alert
 
@@ -11,12 +12,46 @@ import { CameraIcon } from "lucide-solid";
 
 <CodePreview 
     preview={
-        <div class="grid grid-cols-1 space-y-5">
+        <div class="grid grid-cols-1 gap-5">
             <Alert>Default alert</Alert>
-            <Alert title="with title">alert</Alert>
+            <Alert title="with title">
+                Notification message, with a title.
+            </Alert>
             <Alert icon={
                 <><CameraIcon class="h-4 w-4" /> </>
-            } title="with icon and title">alert</Alert>
+            } title="with icon and title">
+                Notification message, with a title.
+            </Alert>
+            <Alert status='success' icon={
+                <><CameraIcon class="h-4 w-4" /> </>
+            } title="with icon and title">
+                Notification message, with a title.
+            </Alert>
+            <Alert status='error' icon={
+                <><CameraIcon class="h-4 w-4" /> </>
+            } title="with icon and title">
+                Notification message, with a title.
+            </Alert>
+            <Alert status='warning' icon={
+                <><CameraIcon class="h-4 w-4" /> </>
+            } title="with icon and title">
+                Notification message, with a title.
+            </Alert>
+            <Alert status='info' size={'sm'} icon={
+                <><CameraIcon class="h-4 w-4" /> </>
+            } title="with icon and title">
+                Notification message, with a title.
+            </Alert>
+            <Alert status='info' size={'md'} icon={
+                <><CameraIcon class="h-4 w-4" /> </>
+            } title="with icon and title">
+                Notification message, with a title.
+            </Alert>
+            <Alert status='info' size={'lg'} icon={
+                <><CameraIcon class="h-4 w-4" /> </>
+            } title="with icon and title">
+                Notification message, with a title.
+            </Alert>
         </div>
     }
 >
@@ -27,12 +62,21 @@ import Alert from '~/components/styled/alert';
 
 function Example() {
     return (
-       <div class="grid grid-cols-1 space-y-5">
+       <div class="grid grid-cols-1 gap-5">
             <Alert>Default alert</Alert>
-            <Alert title="with title">alert</Alert>
+            <Alert title="with title">Alert</Alert>
             <Alert icon={
                 <CameraIcon class="h-4 w-4" />
-            } title="with icon and title">alert</Alert>
+            } title="with icon and title">Alert</Alert>
+            <Alert status='success' icon={
+                <CameraIcon class="h-4 w-4" />
+            } title="with icon and title">Alert</Alert>
+            <Alert status='error' icon={
+                <CameraIcon class="h-4 w-4" />
+            } title="with icon and title">Alert</Alert>
+            <Alert status='warning' icon={
+                <CameraIcon class="h-4 w-4" />
+            } title="with icon and title">Alert</Alert>
         </div>
     );
 }
@@ -40,11 +84,185 @@ function Example() {
 
 </CodePreview>
 
-## Examples
+### Example Cases for Alert Component
+
+#### Info Alert
+
+**Description:** This example demonstrates an alert with the default `info` status.
+
+**Use Case:** Use this alert to provide informational messages to the user.
+
+<CodePreview 
+    preview={<>
+        <Alert title="Information" status="info" size="md">
+            This is an informational alert.
+        </Alert>
+    </>}
+>
+
+```javascript
+import Alert from '~/components/styled/alert';
+
+function Example() {
+    return (
+        <Alert title="Information" status="info" size="md">
+            This is an informational alert.
+        </Alert>
+    );
+}
+```
+
+</CodePreview>
+
+#### Success Alert
+
+**Description:** This example demonstrates an alert with the `success` status.
+
+**Use Case:** Use this alert to notify the user of a successful operation.
+
+<CodePreview 
+    preview={<>
+        <Alert title="Success" status="success" size="md">
+            The operation was successful.
+        </Alert>
+    </>}
+>
+
+```javascript
+import Alert from '~/components/styled/alert';
+
+function Example() {
+    return (
+        <Alert title="Success" status="success" size="md">
+            The operation was successful.
+        </Alert>
+    );
+}
+```
+
+</CodePreview>
+
+#### Error Alert
+
+**Description:** This example demonstrates an alert with the `error` status.
+
+**Use Case:** Use this alert to notify the user of an error.
+
+<CodePreview 
+    preview={<>
+        <Alert title="Error" status="error" size="md">
+            An error has occurred.
+        </Alert>
+    </>}
+>
+
+```javascript
+import Alert from '~/components/styled/alert';
+
+function Example() {
+    return (
+        <Alert title="Error" status="error" size="md">
+            An error has occurred.
+        </Alert>
+    );
+}
+```
+
+</CodePreview>
+
+#### Warning Alert
+
+**Description:** This example demonstrates an alert with the `warning` status.
+
+**Use Case:** Use this alert to warn the user about a potential issue.
+
+<CodePreview 
+    preview={<>
+        <Alert title="Warning" status="warning" size="md">
+            This is a warning alert.
+        </Alert>
+    </>}
+>
+
+```javascript
+import Alert from '~/components/styled/alert';
+
+function Example() {
+    return (
+        <Alert title="Warning" status="warning" size="md">
+            This is a warning alert.
+        </Alert>
+    );
+}
+```
+
+</CodePreview>
+
+#### Small Info Alert with Icon
+
+**Description:** This example demonstrates a small-sized alert with an icon and `info` status.
+
+**Use Case:** Use this alert to provide informational messages with an icon in a compact form.
+
+<CodePreview 
+    preview={<>
+        <Alert title="Info" status="info" size="sm" icon={
+            <> <Info /> </>
+        }>
+            This is a small informational alert with an icon.
+        </Alert>
+    </>}
+>
+
+```javascript
+import Alert from '~/components/styled/alert';
+import { Info } from 'lucide-solid';
+
+function Example() {
+    return (
+        <Alert title="Info" status="info" size="sm" icon={<Info />}>
+            This is a small informational alert with an icon.
+        </Alert>
+    );
+}
+```
+
+</CodePreview>
+
+#### Large Success Alert
+
+**Description:** This example demonstrates a large-sized alert with the `success` status.
+
+**Use Case:** Use this alert to notify the user of a successful operation in a prominent way.
+
+<CodePreview 
+    preview={<>
+        <Alert title="Success" status="success" size="lg">
+            The operation was successful.
+        </Alert>
+    </>}
+>
+
+```javascript
+import Alert from '~/components/styled/alert';
+
+function Example() {
+    return (
+        <Alert title="Success" status="success" size="lg">
+            The operation was successful.
+        </Alert>
+    );
+}
+```
+
+</CodePreview>
+
 
 ## API
 
 | Props | Default | Type | Description |
 | --- | --- | --- | --- |
-| title | `null` | string | Alert title |
+| title | `null` | string \| JSX.Element | Alert title |
 | icon | `null` | JSX.Element | Icon to display in the alert |
+| status | `info` | 'info' \| 'success' \| 'error' \| 'warning' | Alert status |
+| size | `md` | 'sm' \| 'md' \| 'lg' | Alert size |
