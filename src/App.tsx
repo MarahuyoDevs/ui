@@ -34,9 +34,9 @@ const App: Component<{}> = (props) => {
         <Route path={"/theming"} component={() => <Theming />} />
         <Route path={"/styling"} component={() => <Styling />} />
       </Route>
-      <Route path={"/ui/"} component={HomePage}></Route>
+      <Route path={"/ui"} component={HomePage}></Route>
       <Route
-        path={"/ui/*"}
+        path={"/ui*"}
         component={() => {
           window.location.href = "/ui/not-found";
           return <></>;
