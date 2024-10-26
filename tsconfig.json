@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "esModuleInterop":true,
+    "jsxImportSource": "solid-js",
+    "baseUrl": ".",
+    "types": ["vite/client", "solid-jsx/types"],
+    "paths": {
+      "~/*": [
+        "./src/*"
+      ]
+    }
+  }
+}

@@ -1,0 +1,50 @@
+import Alert from '~/components/styled/alert';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/primitives/tabs";
+import CodePreview from "~/lib/code-preview";
+import { CameraIcon } from "lucide-solid";
+
+# Alert
+
+<p class="lead">Display a callout for user attention.</p>
+
+## Usage
+
+<CodePreview 
+    preview={
+        <div class="grid grid-cols-1 space-y-5">
+            <Alert>Default alert</Alert>
+            <Alert title="with title">alert</Alert>
+            <Alert icon={
+                <><CameraIcon class="h-4 w-4" /> </>
+            } title="with icon and title">alert</Alert>
+        </div>
+    }
+>
+
+```javascript
+import { CameraIcon } from "lucide-solid";
+import Alert from '~/components/styled/alert';
+
+function Example() {
+    return (
+       <div class="grid grid-cols-1 space-y-5">
+            <Alert>Default alert</Alert>
+            <Alert title="with title">alert</Alert>
+            <Alert icon={
+                <CameraIcon class="h-4 w-4" />
+            } title="with icon and title">alert</Alert>
+        </div>
+    );
+}
+```
+
+</CodePreview>
+
+## Examples
+
+## API
+
+| Props | Default | Type | Description |
+| --- | --- | --- | --- |
+| title | `null` | string | Alert title |
+| icon | `null` | JSX.Element | Icon to display in the alert |
